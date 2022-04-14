@@ -27,8 +27,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: "Bump version to {{ env.NEWVERSION }} after release"
+          title: Bump version to {{ env.NEWVERSION }} after release
           body: "Pull request created automatically."
-          commit-message: "Bump version to {{ env.NEWVERSION }} after release"
-          branch: "bump/v{{ env.NEWVERSION }}"
+          commit-message: Bump version to {{ env.NEWVERSION }} after release
+          branch: bump/v{{ env.NEWVERSION }}
           base: main
