@@ -41,7 +41,7 @@ jobs:
           # files: # optional
           # List of versioning rules
           rules: >
-            '[{
+            [{
               "destBranch": "main",
               "suffix": "-alpha",
               "bump": "minor",
@@ -52,7 +52,7 @@ jobs:
               "bump":"minor",
               "tag": false,
               "suffix": "-alpha"
-            }]'
+            }]
           # Adds [SKIP] prefix to the commit message to prevent CI/CD build
           # skip: # optional
           # Commiter email address to overide the default
