@@ -25,4 +25,4 @@ jobs:
           branch: "bump/v${{ steps.bump.outputs.new-version }}"
           base: main
         env:
-          RUN_LINK: https://github.com/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}
+          RUN_LINK: https://github.com/GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
