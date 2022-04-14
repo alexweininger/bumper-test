@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm version prerelease -m "Bump version to %s after release"
+npm version prepatch -m "Bump version to %s after release" --no-git-tag-version --preid=alpha

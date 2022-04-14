@@ -20,51 +20,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-        
-      - name: Version Bumper
-        # You may pin to the exact commit or the version.
-        # uses: michmich112/version-bumper@319a22fd31a212eb26cfb33c40fffa37c6a0c099
-        uses: michmich112/version-bumper@1.2.0
+      - name:  'Automated Version Bump'
+        id: 'bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # File path of the options file. Options file must be JSON format.
-          # options-file: # optional
-          # Versioning scheme to use
-          scheme: org_semantic
-          # Custom Scheme to use
-          # custom-scheme: # optional
-          # File containing the current version. Can be in stringified JSON format for accessor information
-          version-file: 'package.json'
-          # List of identifiers to files containing version information to be bumped. Must be in stringified JSON format.
-          files: >
-            [] 
-          # List of versioning rules
-          rules: >
-            [{
-              "destBranch": "main",
-              "suffix": "-alpha",
-              "bump": "minor",
-              "tag": false
-            }, {
-              "trigger":"manual",
-              "branch":"main",
-              "bump":"minor",
-              "tag": false,
-              "suffix": "-alpha"
-            }]
-          # Adds [SKIP] prefix to the commit message to prevent CI/CD build
-          # skip: # optional
-          # Commiter email address to overide the default
-          # email: # optional
-          # Github Username of the committer to override the default
-          # username: # optional
-          # Authorized github token
-          github-token: ${{ github.token }}
+          target-branch: 'main'
+          skip-tag:  'true'
+          default: prepatch
+          preid: 'alpha'
+          commit-message: 'Bump version to {{version}} after release'
+          skip-push:  'true'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: 'test'
+        with:
+          run: |
+            echo ${{ steps.bump.outputs.newTag }}
