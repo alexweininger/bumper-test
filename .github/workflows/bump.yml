@@ -22,7 +22,10 @@ jobs:
 
       - name: 'Bump version'
         run: |
-          echo "NEWVERSION=$(npm version prepatch --no-git-tag-version --preid=alpha)" >> $GITHUB_ENV
+          echo "CURRENTVERSION=$(npm pkg get version)" >> $GITHUB_ENV
+          npm version patch --no-git-tag-version
+          echo "NEWVERSION=$(npm pkg get version)" >> $GITHUB_ENV
+          npm version ${{ env.NEWVERSION }}-alpha --no-git-tag-version
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
