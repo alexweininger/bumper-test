@@ -26,4 +26,4 @@ jobs:
           base: main
         env:
           RUN_LINK: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          MESSAGE: ${{ github.event_name == "release" && "Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }} after release" || "Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }}" }}
+          MESSAGE: Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }}
