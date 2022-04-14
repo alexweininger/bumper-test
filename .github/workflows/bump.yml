@@ -25,7 +25,8 @@ jobs:
           echo "CURRENTVERSION=$(npm pkg get version)" >> $GITHUB_ENV
           npm version patch --no-git-tag-version
           echo "NEWVERSION=$(npm pkg get version)" >> $GITHUB_ENV
-          npm version ${{ env.NEWVERSION }}-alpha --no-git-tag-version
+          "npm version ${{ env.NEWVERSION }}-alpha --no-git-tag-version"
+          echo "NEWVERSION=$(npm pkg get version)" >> $GITHUB_ENV
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
