@@ -30,15 +30,15 @@ jobs:
         uses: michmich112/version-bumper@1.2.0
         with:
           # File path of the options file. Options file must be JSON format.
-          # options-file: # optional
+          options-file: # optional
           # Versioning scheme to use
           scheme: org_semantic
           # Custom Scheme to use
-          # custom-scheme: # optional
+          custom-scheme: # optional
           # File containing the current version. Can be in stringified JSON format for accessor information
           version-file: 'package.json'
           # List of identifiers to files containing version information to be bumped. Must be in stringified JSON format.
-          # files: # optional
+          files: # optional
           # List of versioning rules
           rules: >
             [{
