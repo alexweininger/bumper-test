@@ -20,19 +20,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name:  'Automated Version Bump'
-        id: 'bump'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          target-branch: 'main'
-          skip-tag:  'true'
-          default: prepatch
-          preid: 'alpha'
-          commit-message: 'Bump version to {{version}} after release'
-          skip-push:  'true'
-
-      - name: 'test'
+      - name: 'Bump version'
         run: |
-          echo ${{ steps.bump.outputs.newTag }}
+          echo "NEWVERSION=$(npm version prepatch --no-git-tag-version --preid=alpha)" >> $GITHUB_ENV
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: "Bump version to {{ env.NEWVERSION }} after release"
+          body: "Pull request created automatically."
+          commit-message: "Bump version to {{ env.NEWVERSION }} after release"
+          branch: "bump/v{{ env.NEWVERSION }}"
+          base: main
