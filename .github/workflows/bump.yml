@@ -23,7 +23,7 @@ jobs:
       - name: 'Bump version (patch)'
         run: |
           npm version patch --no-git-tag-version
-          echo "NEWVERSION=$(npm pkg get version) | xargs" >> $GITHUB_ENV
+          echo "NEWVERSION=$(npm pkg get version | xargs)" >> $GITHUB_ENV
 
       - name: 'Bump version (prerelease)'
         run: |
