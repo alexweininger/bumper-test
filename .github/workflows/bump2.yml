@@ -20,7 +20,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           title: Bump version to ${{ steps.bump.outputs.new-version }} after release
-          body: Automatically created by https://github.com/${{ env.GITHUB_REPOSITORY}}/actions/runs/${{ env.GITHUB_RUN_ID }}
+          body: Automatically created by ${{ env.RUN_LINK }}
           commit-message: "Bump version to ${{ steps.bump.outputs.new-version }} after release"
           branch: "bump/v${{ steps.bump.outputs.new-version }}"
           base: main
+        env:
+          RUN_LINK: https://github.com/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }}
