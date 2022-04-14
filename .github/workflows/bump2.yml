@@ -19,10 +19,11 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }} after release
+          title: ${{ env.MESSAGE }}
           body: Automatically created by ${{ env.RUN_LINK }}
-          commit-message: Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }} after release
+          commit-message: ${{ env.MESSAGE }}
           branch: bump/v${{ steps.bump.outputs.new-version }}
           base: main
         env:
           RUN_LINK: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          MESSAGE: ${{ github.event_name == "release" && "Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }} after release" || "Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }}" }}
