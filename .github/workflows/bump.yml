@@ -41,7 +41,7 @@ jobs:
           # files: # optional
           # List of versioning rules
           rules: >
-            [{
+            '[{
               "destBranch": "main",
               "suffix": "-alpha",
               "bump": "minor",
