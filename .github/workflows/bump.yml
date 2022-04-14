@@ -32,7 +32,7 @@ jobs:
           # File path of the options file. Options file must be JSON format.
           # options-file: # optional
           # Versioning scheme to use
-          # scheme: # optional
+          scheme: org_semantic
           # Custom Scheme to use
           # custom-scheme: # optional
           # File containing the current version. Can be in stringified JSON format for accessor information
