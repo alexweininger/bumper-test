@@ -38,7 +38,7 @@ jobs:
           # File containing the current version. Can be in stringified JSON format for accessor information
           version-file: 'package.json'
           # List of identifiers to files containing version information to be bumped. Must be in stringified JSON format.
-          files: # optional
+          files: '' # optional
           # List of versioning rules
           rules: >
             [{
