@@ -1,0 +1,19 @@
+{
+  "name": "bumper-test",
+  "version": "-.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexweininger/bumper-test.git"
+  },
+  "author": "Alex Weininger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexweininger/bumper-test/issues"
+  },
+  "homepage": "https://github.com/alexweininger/bumper-test#readme"
+}
