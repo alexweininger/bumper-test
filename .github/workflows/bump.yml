@@ -34,6 +34,5 @@ jobs:
           skip-push:  'true'
 
       - name: 'test'
-        with:
-          run: |
-            echo ${{ steps.bump.outputs.newTag }}
+        run: |
+          echo ${{ steps.bump.outputs.newTag }}
