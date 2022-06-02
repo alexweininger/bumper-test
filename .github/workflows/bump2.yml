@@ -1,4 +1,4 @@
-name: Bump version
+name: Bump version after release
 
 # Run when release is published, or manually triggered
 on:
@@ -24,6 +24,7 @@ jobs:
           commit-message: ${{ env.MESSAGE }}
           branch: bump/v${{ steps.bump.outputs.new-version }}
           base: main
+          author: GitHub <noreply@github.com>
         env:
           RUN_LINK: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          MESSAGE: Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }}
+          MESSAGE: Bump version from ${{ steps.bump.outputs.old-version }} to ${{ steps.bump.outputs.new-version }} after release
