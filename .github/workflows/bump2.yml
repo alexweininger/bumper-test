@@ -22,7 +22,7 @@ jobs:
           title: ${{ env.MESSAGE }}
           body: Automatically created by ${{ env.RUN_LINK }}
           commit-message: ${{ env.MESSAGE }}
-          branch: bot/bump${{ steps.bump.outputs.new-version }}
+          branch: bot/bump-${{ steps.bump.outputs.new-version }}
           base: main
           author: GitHub <noreply@github.com>
         env:
